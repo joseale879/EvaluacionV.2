@@ -1,16 +1,4 @@
 
-### HU-006: Diseñar e implementar estrategia de roles y permisos diferenciados
-**Como** desarrollador de seguridad,  
-**quiero** implementar el modelo RBAC completo según ADR-002,  
-**para** controlar el acceso según el perfil del usuario.
-
-**Criterios de Aceptación:**
-- 6 roles y permisos granulares definidos y cargados como datos de referencia.
-
-**Entregables:** Datos de referencia en Liquibase  
-**Prioridad:** Must
-
----
 
 ### HU-007: Construir plan de datos de prueba con orden de carga por dependencias
 **Como** desarrollador de pruebas,  
