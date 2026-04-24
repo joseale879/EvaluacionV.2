@@ -1,0 +1,195 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001_geography_tables
+      author: alumno
+      comment: "Crea tablas del dominio Geography"
+      changes:
+        - sqlFile:
+            path: ../01_ddl/03_tables/00-CREATE-GEOGRAPHY-TABLES.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../05_rollbacks/01_ddl/03_tables/00-CREATE-GEOGRAPHY-TABLES.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 002_airline_tables
+      author: alumno
+      comment: "Crea tablas del dominio Airline"
+      changes:
+        - sqlFile:
+            path: ../01_ddl/03_tables/01-CREATE-AIRLINE-TABLES.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../05_rollbacks/01_ddl/03_tables/01-CREATE-AIRLINE-TABLES.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 003_identity_tables
+      author: alumno
+      comment: "Crea tablas del dominio Identity"
+      changes:
+        - sqlFile:
+            path: ../01_ddl/03_tables/02-CREATE-IDENTITY-TABLES.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../05_rollbacks/01_ddl/03_tables/02-CREATE-IDENTITY-TABLES.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 004_security_tables
+      author: alumno
+      comment: "Crea tablas del dominio Security"
+      changes:
+        - sqlFile:
+            path: ../01_ddl/03_tables/03-CREATE-SECURITY-TABLES.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../05_rollbacks/01_ddl/03_tables/03-CREATE-SECURITY-TABLES.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 005_customer_loyalty_tables
+      author: alumno
+      comment: "Crea tablas del dominio Customer & Loyalty"
+      changes:
+        - sqlFile:
+            path: ../01_ddl/03_tables/04-CREATE-CUSTOMER-LOYALTY-TABLES.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../05_rollbacks/01_ddl/03_tables/04-CREATE-CUSTOMER-LOYALTY-TABLES.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 006_airport_tables
+      author: alumno
+      comment: "Crea tablas del dominio Airport"
+      changes:
+        - sqlFile:
+            path: ../01_ddl/03_tables/05-CREATE-AIRPORT-TABLES.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../05_rollbacks/01_ddl/03_tables/05-CREATE-AIRPORT-TABLES.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 007_aircraft_tables
+      author: alumno
+      comment: "Crea tablas del dominio Aircraft"
+      changes:
+        - sqlFile:
+            path: ../01_ddl/03_tables/06-CREATE-AIRCRAFT-TABLES.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../05_rollbacks/01_ddl/03_tables/06-CREATE-AIRCRAFT-TABLES.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 008_flight_operations_tables
+      author: alumno
+      comment: "Crea tablas del dominio Flight Operations"
+      changes:
+        - sqlFile:
+            path: ../01_ddl/03_tables/07-CREATE-OPERATIONS-TABLES.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../05_rollbacks/01_ddl/03_tables/07-CREATE-OPERATIONS-TABLES.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 009_sales_reservation_tables
+      author: alumno
+      comment: "Crea tablas del dominio Sales & Reservation"
+      changes:
+        - sqlFile:
+            path: ../01_ddl/03_tables/08-CREATE-TICKETING-TABLES.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../05_rollbacks/01_ddl/03_tables/08-CREATE-TICKETING-TABLES.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 010_boarding_tables
+      author: alumno
+      comment: "Crea tablas del dominio Boarding"
+      changes:
+        - sqlFile:
+            path: ../01_ddl/03_tables/09-CREATE-BOARDING-TABLES.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../05_rollbacks/01_ddl/03_tables/09-CREATE-BOARDING-TABLES.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 011_payment_tables
+      author: alumno
+      comment: "Crea tablas del dominio Payment"
+      changes:
+        - sqlFile:
+            path: ../01_ddl/03_tables/10-CREATE-PAYMENT-TABLES.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../05_rollbacks/01_ddl/03_tables/10-CREATE-PAYMENT-TABLES.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 012_billing_tables
+      author: alumno
+      comment: "Crea tablas del dominio Billing"
+      changes:
+        - sqlFile:
+            path: ../01_ddl/03_tables/11-CREATE-BILLING-TABLES.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../05_rollbacks/01_ddl/03_tables/11-CREATE-BILLING-TABLES.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 013_notifications_tables
+      author: alumno
+      comment: "Crea tablas del dominio Notifications (ADR-001)"
+      changes:
+        - sqlFile:
+            path: ../01_ddl/03_tables/12-CREATE-NOTIFICATIONS-TABLES.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../05_rollbacks/01_ddl/03_tables/12-CREATE-NOTIFICATIONS-TABLES.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
