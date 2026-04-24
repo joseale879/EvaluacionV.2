@@ -1,33 +1,4 @@
 
-
-### HU-004: Contenerizar Liquibase e integrarlo al proyecto
-**Como** desarrollador,  
-**quiero** que Liquibase se ejecute automáticamente dentro del Docker Compose,  
-**para** que al levantar el contenedor se aplique todo el esquema de forma controlada.
-
-**Criterios de Aceptación:**
-- Liquibase integrado correctamente en el `docker-compose.yml`.
-- Se ejecuta después de PostgreSQL.
-
-**Entregables:** Actualización del archivo `docker/docker-compose.yml`  
-**Prioridad:** Must
-
----
-
-### HU-005: Separar el DDL en changelogs organizados por dominio funcional
-**Como** desarrollador,  
-**quiero** dividir el script `modelo_postgresql.sql` en changelogs de Liquibase (uno por dominio),  
-**para** cumplir con la regla “máximo un dominio por changelog” y versionar el DDL.
-
-**Criterios de Aceptación:**
-- 13 archivos de changelog creados (12 dominios originales + Notifications).
-- `changelog-master.xml` que incluye todos en el orden correcto.
-
-**Entregables:** Carpeta `liquibase/changelogs/` completa  
-**Prioridad:** Must
-
----
-
 ### HU-006: Diseñar e implementar estrategia de roles y permisos diferenciados
 **Como** desarrollador de seguridad,  
 **quiero** implementar el modelo RBAC completo según ADR-002,  
