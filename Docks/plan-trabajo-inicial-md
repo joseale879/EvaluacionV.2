@@ -1,0 +1,95 @@
+# Plan de Trabajo Inicial – Fase Supervisada y Desescolarizada
+
+**Proyecto:** Estabilización de Base de Datos de Aerolínea  
+**Duración supervisada:** 5 horas  
+**Duración desescolarizada:** Continuación hasta finalización completa
+
+## Objetivo del plan
+
+Establecer una hoja de ruta clara para analizar el modelo base, documentar decisiones arquitectónicas, implementar el versionamiento con Liquibase, contenerizar la base de datos y poblar con datos de prueba.
+
+## Fase 1: Análisis y documentación (2 horas)
+
+| Actividad | Duración | Responsable | Entregable |
+|-----------|----------|-------------|-------------|
+| Leer y comprender `modelo_postgresql.sql` | 30 min | Desarrollador | - |
+| Identificar dominios funcionales | 30 min | Desarrollador | `docs/analisis_dominios.md` |
+| Redactar 5 ADR (incluyendo Notifications y RBAC) | 60 min | Desarrollador | 5 archivos en `ADR/` |
+
+## Fase 2: Configuración del repositorio y versionamiento (1 hora)
+
+| Actividad | Duración | Entregable |
+|-----------|----------|-------------|
+| Crear estructura de carpetas (docker/, liquibase/, docs/, etc.) | 15 min | Repositorio |
+| Inicializar ramas develop, qa, main | 15 min | `git branch` |
+| Definir backlog técnico y HU esenciales | 30 min | `docs/backlog_tecnico.md`, `HU.md` |
+
+## Fase 3: Contenerización básica (1 hora)
+
+| Actividad | Duración | Entregable |
+|-----------|----------|-------------|
+| Crear `docker-compose.yml` con PostgreSQL | 30 min | `docker/docker-compose.yml` (HU-003) |
+| Probar persistencia y conexión | 30 min | Verificación |
+
+## Fase 4: Integración de Liquibase (1 hora) – Inicio desescolarizado
+
+| Actividad | Duración | Entregable |
+|-----------|----------|-------------|
+| Crear Dockerfile de Liquibase | 15 min | `docker/liquibase/Dockerfile` |
+| Configurar servicio liquibase en compose | 15 min | Actualización de compose |
+| Crear changelog-master.xml de prueba | 15 min | `liquibase/changelog-master.xml` |
+| Ejecutar y verificar | 15 min | Logs de éxito |
+
+## Fase 5: Separación de DDL por dominio (desescolarizado)
+
+| Actividad | Duración estimada | Entregable |
+|-----------|-------------------|-------------|
+| Extraer CREATE TABLE de cada dominio | 2 horas | 13 archivos en `01_ddl/03_tables/` |
+| Crear changelog XML/YAML por dominio | 2 horas | `liquibase/changelogs/` |
+| Crear rollbacks por dominio | 1 hora | `05_rollbacks/01_ddl/03_tables/` |
+| Probar migración completa | 1 hora | `docker compose up` sin errores |
+
+## Fase 6: Datos de referencia y prueba (desescolarizado)
+
+| Actividad | Duración | Entregable |
+|-----------|----------|-------------|
+| Implementar RBAC (6 roles y permisos) | 1 hora | `02_dml/01_security_reference_data.sql` |
+| Crear scripts de datos de prueba por dominio | 3 horas | 13 archivos en `02_dml/` |
+| Crear rollbacks de datos | 1 hora | `05_rollbacks/02_dml/` |
+| Integrar todo en un changeSet general | 30 min | `999_test_data_all` |
+
+## Fase 7: Integración final y documentación (desescolarizado)
+
+| Actividad | Duración | Entregable |
+|-----------|----------|-------------|
+| Modificar compose para ejecución automática | 15 min | `docker-compose.yml` final |
+| Probar `docker compose up -d` completo | 30 min | Logs y verificación |
+| Escribir `docker/README.md` | 30 min | Instrucciones claras |
+| Preparar sustentación | 1 hora | Presentación / demo |
+
+## Herramientas
+
+- Git (GitHub)
+- Docker Desktop
+- Visual Studio Code / DBeaver
+- Liquibase (dentro del contenedor)
+- PostgreSQL 16
+
+## Riesgos y mitigación
+
+| Riesgo | Mitigación |
+|--------|-------------|
+| Falta de experiencia con Liquibase | Usar sintaxis simple y ejemplos del instructor |
+| Conflictos de puertos (5432) | Usar puerto 5555 por defecto |
+| Datos de prueba inconsistentes | Usar `ON CONFLICT` y orden estricto |
+| Tiempo insuficiente | Priorizar HU Must y dejar opcionales |
+
+## Estado actual (al final de la fase supervisada)
+
+- Completado: análisis de dominios, 5 ADR, backlog, estructura repositorio, HU-003 y HU-004 iniciadas.
+- Pendiente: separación DDL, datos de prueba, HU-008.
+
+## Aprobación
+
+- Instructor: _______________
+- Fecha: _______________
