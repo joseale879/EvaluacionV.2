@@ -1,18 +1,5 @@
 
 
-### HU-003: Contenerizar PostgreSQL para levantar la base de datos en entorno local
-**Como** desarrollador,  
-**quiero** tener un contenedor de PostgreSQL listo con Docker,  
-**para** poder levantar la base de datos de forma rápida y reproducible en cualquier equipo.
-
-**Criterios de Aceptación:**
-- `docker compose up -d` levanta PostgreSQL en el puerto 5432 con volumen persistente.
-
-**Entregables:** `docker/docker-compose.yml` (versión inicial)  
-**Prioridad:** Must
-
----
-
 ### HU-004: Contenerizar Liquibase e integrarlo al proyecto
 **Como** desarrollador,  
 **quiero** que Liquibase se ejecute automáticamente dentro del Docker Compose,  
