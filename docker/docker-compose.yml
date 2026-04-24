@@ -12,12 +12,28 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test:
-        - CMD-SHELL
-        - pg_isready -U ${POSTGRES_USER:-airline_user} -d ${POSTGRES_DB:-airline}
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-airline_user} -d ${POSTGRES_DB:-airline}"]
       interval: 5s
       timeout: 5s
       retries: 10
+
+  liquibase:
+    build:
+      context: ..
+      dockerfile: docker/liquibase/Dockerfile
+    image: airline-liquibase:latest
+    profiles:
+      - tooling
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      LIQUIBASE_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB:-airline}
+      LIQUIBASE_USERNAME: ${POSTGRES_USER:-airline_user}
+      LIQUIBASE_PASSWORD: ${POSTGRES_PASSWORD:-airline123.}
+    volumes:
+      - ../liquibase:/liquibase/changelog
+    command: ["--changeLogFile=changelog/changelog-master.xml", "update"]
 
 volumes:
   postgres_data:
