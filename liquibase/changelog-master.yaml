@@ -178,3 +178,33 @@ databaseChangeLog:
             path: ../05_rollbacks/01_ddl/03_tables/11-CREATE-BILLING-TABLES.rollback.sql
             relativeToChangelogFile: true
             stripComments: false
+
+  - changeSet:
+      id: 013_notifications_tables
+      author: alumno
+      comment: "Crea tablas del dominio Notifications (ADR-001)"
+      changes:
+        - sqlFile:
+            path: ../01_ddl/03_tables/12-CREATE-NOTIFICATIONS-TABLES.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+          path: ../05_rollbacks/01_ddl/03_tables/12-CREATE-NOTIFICATIONS-TABLES.rollback.sql
+          relativeToChangelogFile: true
+          stripComments: false
+          
+  - changeSet:
+      id: 03a_security_reference_data
+      author: alumno
+      comment: "Carga datos de referencia para RBAC (6 roles y permisos granulares) - ADR-002"
+      changes:
+        - sqlFile:
+            path: ../02_dml/01-SECURITY-REFERENCE-DATA.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../05_rollbacks/02_dml/01-SECURITY-REFERENCE-DATA.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
